@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,8 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -24,12 +25,13 @@ public class Pagamento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotNull
 	private String descricao;
 
-	@Column(nullable = false)
+	@NotNull
 	private double valor;
 
-	@Column(nullable = false)
+	@NotNull
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataVencimento;
 
@@ -38,12 +40,12 @@ public class Pagamento {
 
 	@JsonManagedReference
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pagamento")
+	@JsonIgnore
 	@Valid
 	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 
 	public Pagamento(Long id, String descricao, double valor, LocalDate dataVencimento, LocalDate dataPagamento,
 			@Valid List<Ocorrencia> ocorrencias) {
-		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.valor = valor;
@@ -53,15 +55,10 @@ public class Pagamento {
 	}
 
 	public Pagamento() {
-		super();
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getDescricao() {

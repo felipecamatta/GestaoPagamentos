@@ -1,9 +1,9 @@
 package com.felipe.gestaopagamentos.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.felipe.gestaopagamentos.model.Funcionario;
 
-public interface FuncionarioRepository extends CrudRepository<Funcionario, Long> {
+public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
 
 }

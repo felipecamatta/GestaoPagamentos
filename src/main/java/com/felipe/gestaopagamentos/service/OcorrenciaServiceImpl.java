@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.felipe.gestaopagamentos.model.Ocorrencia;
+import com.felipe.gestaopagamentos.model.Pagamento;
 import com.felipe.gestaopagamentos.repository.OcorrenciaRepository;
 
 @Service
@@ -26,5 +27,9 @@ public class OcorrenciaServiceImpl implements OcorrenciaService {
 
 	public Ocorrencia save(Ocorrencia ocorrencia) {
 		return ocorrenciaRepository.save(ocorrencia);
+	}
+
+	public Iterable<Ocorrencia> getOcorrenciasByPagamento(Pagamento pagamento) {
+		return ocorrenciaRepository.findByPagamento(pagamento);
 	}
 }

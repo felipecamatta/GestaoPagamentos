@@ -20,22 +20,16 @@ public class Funcionario {
 	private String cargo;
 
 	public Funcionario(Long id, String nome, String cargo) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.cargo = cargo;
 	}
 
 	public Funcionario() {
-		super();
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome() {
