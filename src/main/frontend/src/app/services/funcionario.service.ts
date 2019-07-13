@@ -20,4 +20,8 @@ export class FuncionarioService {
     return this.http.post<Funcionario>(this.funcionariosUrl, funcionario);
   }
 
+  public del(funcionario: Funcionario) {
+    let index = funcionario.id;
+  }
+
 }

@@ -30,6 +30,7 @@ public class GestaoPagamentoApplication {
 			funcionarioService.save(new Funcionario(1L, "Felipe", "Gerente"));
 			funcionarioService.save(new Funcionario(2L, "Luciano", "Gerente"));
 			funcionarioService.save(new Funcionario(3L, "José", "Gerente"));
+			funcionarioService.save(new Funcionario(4L, "Lucas", "Escravo"));
 			Pagamento pagamento = pagamentoService.save(new Pagamento(1L, "Desc", 2000.00, LocalDate.now(), LocalDate.of(2019, 07, 20), lista));
 			pagamentoService.save(new Pagamento(2L, "Desc", 2000.00, LocalDate.now(), LocalDate.of(2019, 07, 20), lista));
 			ocorrenciaService.save(new Ocorrencia(1L, "Desc", "Joao", pagamento));
