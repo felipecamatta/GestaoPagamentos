@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Funcionario } from '../models/funcionario';
 import { FuncionarioService } from '../services/funcionario.service';
 
 @Component({
@@ -7,13 +8,14 @@ import { FuncionarioService } from '../services/funcionario.service';
   styleUrls: ['./funcionario-list.component.css']
 })
 export class FuncionarioListComponent implements OnInit {
-  private funcionarios: Array<any>;
+
+  funcionarios: Funcionario[]
 
   constructor(private funcionarioService: FuncionarioService) { }
 
   ngOnInit() {
-    this.funcionarioService.getAll().subscribe( next: data => {
-      this.funcionarios = data;
+    this.funcionarioService.findAll().subscribe(data => {
+      this.funcionarios = data
     });
   }
 

@@ -16,6 +16,7 @@ import com.felipe.gestaopagamentos.service.FuncionarioService;
 
 @RestController
 @RequestMapping("/funcionarios")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FuncionarioController {
 
 	private FuncionarioService funcionarioService;

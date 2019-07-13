@@ -1,15 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Funcionario } from '../models/funcionario';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FuncionarioService {
 
-  constructor(private http: HttpClient) { }
+  private funcionariosUrl: string;
 
-  getAll(): Observable<any> {
-    return this.http.get('//Localhost:8080/funcionarios');
+  constructor(private http: HttpClient) {
+    this.funcionariosUrl = 'http://localhost:8080/funcionarios';
   }
+
+  public findAll(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(this.funcionariosUrl);
+  }
+ 
+  public save(funcionario: Funcionario) {
+    return this.http.post<Funcionario>(this.funcionariosUrl, funcionario);
+  }
+
 }

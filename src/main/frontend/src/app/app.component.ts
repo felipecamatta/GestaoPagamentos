@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Gestão de Pagamentos';
-
-  Login(){
-    
-  }
+  title = 'Spring Boot - Gestão de Pagamento';
 }
