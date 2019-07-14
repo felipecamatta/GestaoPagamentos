@@ -1,0 +1,25 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Solicitante</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Vencimento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pagamento of pagamentos">
+          <td>{{ pagamento.id }}</td>
+          <td>{{ pagamento.descricao }}</td>
+          <td>{{ pagamento.ocorrencias[0].usuario }}</td>
+          <td>{{ pagamento.valor }}</td>
+          <td>{{ pagamento.dataVencimento }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <li class="list-inline-item"><a routerLink="/addpagamento" class="btn btn-info">Registrar Pagamento</a></li>
+</div>

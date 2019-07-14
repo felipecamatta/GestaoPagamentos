@@ -1,7 +1,8 @@
 import { Ocorrencia } from './ocorrencia';
 
 export class Pagamento {
-    descricao: string
+    id: String
+    descricao: String
     valor: DoubleRange
     dataVencimento: Date
     dataPagamento: Date

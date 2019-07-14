@@ -1,4 +1,4 @@
 export class Ocorrencia {
-    descricao: string
-    usuario: string
+    descricao: String
+    usuario: String
 }

@@ -9,12 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { FuncionarioService } from './services/funcionario.service';
+import { PagamentoRegisterComponent } from './pagamento-register/pagamento-register.component';
+import { PagamentoListComponent } from './pagamento-list/pagamento-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FuncionarioListComponent,
-    FuncionarioFormComponent
+    FuncionarioFormComponent,
+    PagamentoRegisterComponent,
+    PagamentoListComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,9 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Funcionario } from '../models/funcionario';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class FuncionarioService {
 
   private funcionariosUrl: string;
@@ -20,8 +22,7 @@ export class FuncionarioService {
     return this.http.post<Funcionario>(this.funcionariosUrl, funcionario);
   }
 
-  public del(funcionario: Funcionario) {
-    let index = funcionario.id;
+  public del(id: number): Observable<void> {
+    return this.http.delete<void>('${this.funcionarioUrl}/${id}');
   }
-
 }

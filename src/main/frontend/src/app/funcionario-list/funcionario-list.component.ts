@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Funcionario } from '../models/funcionario';
 import { FuncionarioService } from '../services/funcionario.service';
-import { viewClassName } from '@angular/compiler';
 
 @Component({
   selector: 'app-funcionario-list',
@@ -20,4 +19,7 @@ export class FuncionarioListComponent implements OnInit {
     });
   }
 
+  deleteFuncionario(id: String) {
+    this.funcionarioService.del(Number(id));
+  }
 }
