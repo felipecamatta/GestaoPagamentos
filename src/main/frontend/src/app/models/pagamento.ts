@@ -1,4 +1,5 @@
 import { Ocorrencia } from './ocorrencia';
+import { Funcionario } from './funcionario';
 
 export class Pagamento {
     id: String
@@ -7,4 +8,5 @@ export class Pagamento {
     dataVencimento: Date
     dataPagamento: Date
     ocorrencias: Ocorrencia[]
+    funcionario: Funcionario
 }

@@ -27,13 +27,13 @@ public class GestaoPagamentoApplication {
 	CommandLineRunner runner(FuncionarioService funcionarioService, PagamentoService pagamentoService, OcorrenciaService ocorrenciaService) {
 		List<Ocorrencia> lista = new ArrayList<>();
 		return args -> {
-			funcionarioService.save(new Funcionario(1L, "Felipe", "Gerente"));
-			funcionarioService.save(new Funcionario(2L, "Luciano", "Gerente"));
+			Funcionario f1 = funcionarioService.save(new Funcionario(1L, "Felipe", "Gerente"));
+			Funcionario f2 = funcionarioService.save(new Funcionario(2L, "Luciano", "Gerente"));
 			funcionarioService.save(new Funcionario(3L, "José", "Gerente"));
 			funcionarioService.save(new Funcionario(4L, "Lucas", "Escravo"));
-			Pagamento pagamento = pagamentoService.save(new Pagamento(1L, "Desc", 2000.00, LocalDate.now(), LocalDate.of(2019, 07, 20), lista));
+			Pagamento pagamento = pagamentoService.save(new Pagamento(1L, "Desc", 2000.00, LocalDate.now(), LocalDate.of(2019, 07, 20), lista, f1));
 			ocorrenciaService.save(new Ocorrencia(1L, "Desc", "Joao", pagamento));
-			Pagamento pagamento1 = pagamentoService.save(new Pagamento(2L, "123abc", 987.00, LocalDate.now(), LocalDate.of(2019, 07, 20), lista));
+			Pagamento pagamento1 = pagamentoService.save(new Pagamento(2L, "123abc", 987.00, LocalDate.now(), LocalDate.of(2019, 07, 20), lista, f2));
 			ocorrenciaService.save(new Ocorrencia(2L, "123abc", "Lucas", pagamento1));
 		};
 	}

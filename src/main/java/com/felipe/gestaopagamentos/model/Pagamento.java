@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -44,14 +46,19 @@ public class Pagamento {
 	@Valid
 	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 
+	@ManyToOne
+	@JoinColumn(name = "funcionario_id", nullable = false)
+	private Funcionario funcionario;
+
 	public Pagamento(Long id, String descricao, double valor, LocalDate dataVencimento, LocalDate dataPagamento,
-			@Valid List<Ocorrencia> ocorrencias) {
+			@Valid List<Ocorrencia> ocorrencias, @Valid Funcionario funcionario) {
 		this.id = id;
 		this.descricao = descricao;
 		this.valor = valor;
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
 		this.ocorrencias = ocorrencias;
+		this.funcionario = funcionario;
 	}
 
 	public Pagamento() {
@@ -99,6 +106,14 @@ public class Pagamento {
 
 	public void setOcorrencias(List<Ocorrencia> ocorrencias) {
 		this.ocorrencias = ocorrencias;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 }

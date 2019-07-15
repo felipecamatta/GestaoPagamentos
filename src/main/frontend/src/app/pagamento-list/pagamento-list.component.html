@@ -14,7 +14,7 @@
         <tr *ngFor="let pagamento of pagamentos">
           <td>{{ pagamento.id }}</td>
           <td>{{ pagamento.descricao }}</td>
-          <td>{{ pagamento.ocorrencias[0].usuario }}</td>
+          <td>{{ pagamento.funcionario.nome }}</td>
           <td>{{ pagamento.valor }}</td>
           <td>{{ pagamento.dataVencimento }}</td>
         </tr>
