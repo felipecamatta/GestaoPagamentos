@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { FuncionarioService } from './services/funcionario.service';
 import { PagamentoRegisterComponent } from './pagamento-register/pagamento-register.component';
 import { PagamentoListComponent } from './pagamento-list/pagamento-list.component';
+import { AutorizadorListComponent } from './autorizador-list/autorizador-list.component';
+import { AutorizadorFormComponent } from './autorizador-form/autorizador-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PagamentoListComponent } from './pagamento-list/pagamento-list.componen
     FuncionarioListComponent,
     FuncionarioFormComponent,
     PagamentoRegisterComponent,
-    PagamentoListComponent
+    PagamentoListComponent,
+    AutorizadorListComponent,
+    AutorizadorFormComponent
   ],
   imports: [
     BrowserModule,

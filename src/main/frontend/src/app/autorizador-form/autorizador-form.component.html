@@ -1,0 +1,28 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #autorizadorForm="ngForm">
+      <div class="form-group">
+        <label for="cargo">Cargo</label>
+        <input type="text" [(ngModel)]="autorizador.nome" 
+          class="form-control" id="cargo" name="cargo" placeholder="Digite o cargo"
+          required #nome="ngModel">
+      </div>
+      <div [hidden]="!nome.pristine" class="alert alert-danger">Cargo é um campo obrigatório!</div>
+      <div class="form-group">
+        <label for="valor">Limite</label>
+        <input type="number" [(ngModel)]="autorizador.Disponivel" 
+          class="form-control" id="valor" name="valor" placeholder="Digite o limite disponivel"
+          required #limite="ngModel">
+        <div [hidden]="!limite.pristine" class="alert alert-danger">Limite é um campo obrigatório!</div>
+      </div>
+      <div class="form-group">
+        <label for="disponivel">Disponivel? (s/n)</label>
+        <input type="text" [(ngModel)]="autorizador.disponivel" 
+          class="form-control" id="disponivel" name="disponivel"
+          required #disponivel="ngModel">
+      </div>
+      <div [hidden]="!disponivel.pristine" class="alert alert-danger">O campo de disponibilidade é obrigatório!</div>
+      <button type="submit" [disabled]="!autorizadorForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
