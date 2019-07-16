@@ -19,7 +19,10 @@ export class FuncionarioListComponent implements OnInit {
     });
   }
 
-  deleteFuncionario(id: String) {
-    this.funcionarioService.del(Number(id));
+  onDelete(id: number) {
+    this.funcionarioService.delete(id).subscribe(data => {
+      alert ("Funcionario deletado!");
+      this.ngOnInit();
+    });
   }
 }

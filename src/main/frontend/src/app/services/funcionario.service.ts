@@ -22,7 +22,7 @@ export class FuncionarioService {
     return this.http.post<Funcionario>(this.funcionariosUrl, funcionario);
   }
 
-  public del(id: number): Observable<void> {
-    return this.http.delete<void>('${this.funcionarioUrl}/${id}');
+  public delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.funcionariosUrl}/${id}`);
   }
 }

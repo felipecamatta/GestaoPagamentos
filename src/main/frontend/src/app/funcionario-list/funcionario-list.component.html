@@ -13,7 +13,7 @@
             <td>{{ funcionario.id }}</td>
             <td>{{ funcionario.nome }}</td>
             <td>{{ funcionario.cargo }}</td>
-            <button class="btn-danger" (click)="deleteFuncionario(funcionario.id)">x</button>
+            <button class="btn-danger" (click)="onDelete(funcionario.id)">x</button>
           </tr>
         </tbody>
       </table>
