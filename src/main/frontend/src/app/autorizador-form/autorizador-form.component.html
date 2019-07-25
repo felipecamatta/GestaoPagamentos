@@ -3,15 +3,15 @@
     <form (ngSubmit)="onSubmit()" #autorizadorForm="ngForm">
       <div class="form-group">
         <label for="cargo">Cargo</label>
-        <input type="text" [(ngModel)]="autorizador.nome" 
+        <input type="text" [(ngModel)]="autorizador.cargo" 
           class="form-control" id="cargo" name="cargo" placeholder="Digite o cargo"
-          required #nome="ngModel">
+          required #cargo="ngModel">
       </div>
-      <div [hidden]="!nome.pristine" class="alert alert-danger">Cargo é um campo obrigatório!</div>
+      <div [hidden]="!cargo.pristine" class="alert alert-danger">Cargo é um campo obrigatório!</div>
       <div class="form-group">
-        <label for="valor">Limite</label>
-        <input type="number" [(ngModel)]="autorizador.Disponivel" 
-          class="form-control" id="valor" name="valor" placeholder="Digite o limite disponivel"
+        <label for="limite">Limite</label>
+        <input type="number" [(ngModel)]="autorizador.limite" 
+          class="form-control" id="limite" name="limite" placeholder="Digite o limite disponivel"
           required #limite="ngModel">
         <div [hidden]="!limite.pristine" class="alert alert-danger">Limite é um campo obrigatório!</div>
       </div>

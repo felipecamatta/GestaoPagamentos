@@ -23,5 +23,4 @@ export class FuncionarioFormComponent {
   gotofuncionarioList() {
     this.router.navigate(['/funcionarios']);
   }
-
 }

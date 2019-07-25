@@ -19,7 +19,10 @@ export class AutorizadorListComponent implements OnInit {
     });
   }
 
-  deleteAutorizador(id: String) {
-    this.autorizadorService.del(Number(id));
+  onDelete(id: number) {
+    this.autorizadorService.delete(id).subscribe(data => {
+      alert ("Autorizador deletado!");
+      this.ngOnInit();
+    });
   }
 }

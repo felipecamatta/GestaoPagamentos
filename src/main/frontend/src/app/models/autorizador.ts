@@ -1,6 +1,6 @@
 export class Autorizador {
-    id: String
+    id: number
 	cargo: String
-	limite: DoubleRange
+	limite: number
 	disponivel: CharacterData
 }

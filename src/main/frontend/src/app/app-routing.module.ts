@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'pagamentos', component: PagamentoListComponent },
   { path: 'addpagamento', component: PagamentoRegisterComponent },
   { path: 'autorizadores', component: AutorizadorListComponent },
-  { path: 'addautorizadores', component: AutorizadorFormComponent }
+  { path: 'addautorizador', component: AutorizadorFormComponent }
 ];
  
 @NgModule({

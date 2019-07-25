@@ -13,6 +13,7 @@ import { PagamentoRegisterComponent } from './pagamento-register/pagamento-regis
 import { PagamentoListComponent } from './pagamento-list/pagamento-list.component';
 import { AutorizadorListComponent } from './autorizador-list/autorizador-list.component';
 import { AutorizadorFormComponent } from './autorizador-form/autorizador-form.component';
+import { AutorizadorService } from './services/autorizador.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import { AutorizadorFormComponent } from './autorizador-form/autorizador-form.co
     HttpClientModule,
     FormsModule
   ],
-  providers: [FuncionarioService],
+  providers: [
+    FuncionarioService,
+    AutorizadorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

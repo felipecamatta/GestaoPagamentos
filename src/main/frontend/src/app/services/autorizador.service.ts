@@ -22,7 +22,7 @@ export class AutorizadorService {
     return this.http.post<Autorizador>(this.autorizadoresUrl, funcionario);
   }
 
-  public del(id: number): Observable<void> {
-    return this.http.delete<void>('${this.autorizadoresUrl}/${id}');
+  public delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.autorizadoresUrl}/${id}`);
   }
 }
