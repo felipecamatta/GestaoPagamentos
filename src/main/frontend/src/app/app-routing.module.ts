@@ -6,6 +6,7 @@ import { PagamentoListComponent } from './pagamento-list/pagamento-list.componen
 import { PagamentoRegisterComponent } from './pagamento-register/pagamento-register.component';
 import { AutorizadorListComponent } from './autorizador-list/autorizador-list.component';
 import { AutorizadorFormComponent } from './autorizador-form/autorizador-form.component';
+import { PagamentoAuthorizeComponent } from './pagamento-authorize/pagamento-authorize.component';
 
 const routes: Routes = [
   { path: 'funcionarios', component: FuncionarioListComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'pagamentos', component: PagamentoListComponent },
   { path: 'addpagamento', component: PagamentoRegisterComponent },
   { path: 'autorizadores', component: AutorizadorListComponent },
-  { path: 'addautorizador', component: AutorizadorFormComponent }
+  { path: 'addautorizador', component: AutorizadorFormComponent },
+  { path: 'autpagamento', component: PagamentoAuthorizeComponent }
 ];
  
 @NgModule({

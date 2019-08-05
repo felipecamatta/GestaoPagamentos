@@ -14,6 +14,7 @@ import { PagamentoListComponent } from './pagamento-list/pagamento-list.componen
 import { AutorizadorListComponent } from './autorizador-list/autorizador-list.component';
 import { AutorizadorFormComponent } from './autorizador-form/autorizador-form.component';
 import { AutorizadorService } from './services/autorizador.service';
+import { PagamentoAuthorizeComponent } from './pagamento-authorize/pagamento-authorize.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AutorizadorService } from './services/autorizador.service';
     PagamentoRegisterComponent,
     PagamentoListComponent,
     AutorizadorListComponent,
-    AutorizadorFormComponent
+    AutorizadorFormComponent,
+    PagamentoAuthorizeComponent
   ],
   imports: [
     BrowserModule,

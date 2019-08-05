@@ -32,6 +32,9 @@ public class Pagamento {
 
 	@NotNull
 	private double valor;
+	
+	@NotNull
+	private String status;
 
 	@NotNull
 	@JsonFormat(pattern = "dd/MM/yyyy")
@@ -51,12 +54,13 @@ public class Pagamento {
 	private Funcionario funcionario;
 
 	public Pagamento(Long id, String descricao, double valor, LocalDate dataVencimento, LocalDate dataPagamento,
-			@Valid List<Ocorrencia> ocorrencias, @Valid Funcionario funcionario) {
+			String status, @Valid List<Ocorrencia> ocorrencias, @Valid Funcionario funcionario) {
 		this.id = id;
 		this.descricao = descricao;
 		this.valor = valor;
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
+		this.status = status;
 		this.ocorrencias = ocorrencias;
 		this.funcionario = funcionario;
 	}
@@ -82,6 +86,14 @@ public class Pagamento {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public LocalDate getDataVencimento() {

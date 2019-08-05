@@ -7,6 +7,7 @@ export class Pagamento {
     valor: DoubleRange
     dataVencimento: Date
     dataPagamento: Date
+    status: String
     ocorrencias: Ocorrencia[]
     funcionario: Funcionario
 }
