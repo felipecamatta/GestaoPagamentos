@@ -22,5 +22,6 @@ export class FuncionarioFormComponent {
  
   gotofuncionarioList() {
     this.router.navigate(['/funcionarios']);
+    alert("Funcionario adicionado com sucesso!");
   }
 }

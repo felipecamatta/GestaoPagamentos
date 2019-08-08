@@ -33,7 +33,6 @@ public class Pagamento {
 	@NotNull
 	private double valor;
 	
-	@NotNull
 	private String status;
 
 	@NotNull

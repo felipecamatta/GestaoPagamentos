@@ -9,23 +9,25 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { FuncionarioService } from './services/funcionario.service';
-import { PagamentoRegisterComponent } from './pagamento-register/pagamento-register.component';
 import { PagamentoListComponent } from './pagamento-list/pagamento-list.component';
 import { AutorizadorListComponent } from './autorizador-list/autorizador-list.component';
 import { AutorizadorFormComponent } from './autorizador-form/autorizador-form.component';
 import { AutorizadorService } from './services/autorizador.service';
 import { PagamentoAuthorizeComponent } from './pagamento-authorize/pagamento-authorize.component';
+import { PagamentoOcorrenciasComponent } from './pagamento-ocorrencias/pagamento-ocorrencias.component';
+import { PagamentoFormComponent } from './pagamento-form/pagamento-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FuncionarioListComponent,
     FuncionarioFormComponent,
-    PagamentoRegisterComponent,
     PagamentoListComponent,
     AutorizadorListComponent,
     AutorizadorFormComponent,
-    PagamentoAuthorizeComponent
+    PagamentoAuthorizeComponent,
+    PagamentoOcorrenciasComponent,
+    PagamentoFormComponent
   ],
   imports: [
     BrowserModule,

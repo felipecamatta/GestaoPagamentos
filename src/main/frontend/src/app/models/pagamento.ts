@@ -2,11 +2,11 @@ import { Ocorrencia } from './ocorrencia';
 import { Funcionario } from './funcionario';
 
 export class Pagamento {
-    id: String
+    id: number
     descricao: String
     valor: DoubleRange
-    dataVencimento: Date
-    dataPagamento: Date
+    dataVencimento: String
+    dataPagamento: String
     status: String
     ocorrencias: Ocorrencia[]
     funcionario: Funcionario

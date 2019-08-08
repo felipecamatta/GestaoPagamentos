@@ -10,6 +10,7 @@ import { PagamentoService } from '../services/pagamento.service';
 export class PagamentoAuthorizeComponent implements OnInit {
 
   pagamentos: Pagamento[]
+  pagchecked: Pagamento[]
   
   constructor(private pagamentoService: PagamentoService) { }
 
@@ -17,5 +18,9 @@ export class PagamentoAuthorizeComponent implements OnInit {
     this.pagamentoService.findAll().subscribe(data => {
       this.pagamentos = data
     });
+  }
+
+  aut() {
+
   }
 }
