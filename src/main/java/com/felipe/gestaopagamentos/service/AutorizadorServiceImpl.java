@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.felipe.gestaopagamentos.model.Autorizador;
+import com.felipe.gestaopagamentos.model.Pagamento;
 import com.felipe.gestaopagamentos.repository.AutorizadorRepository;
 
 @Service
@@ -44,6 +45,14 @@ public class AutorizadorServiceImpl implements AutorizadorService {
 			autorizadorRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());
+	}
+
+	@Override
+	public boolean autorizar(Pagamento[] pagamentos) {
+		for (Pagamento pagamento : pagamentos) {
+			pagamento.setStatus("Pago");
+		}
+		return true;
 	}
 
 }

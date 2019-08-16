@@ -8,16 +8,25 @@ import { Funcionario } from '../models/funcionario';
   templateUrl: './funcionario-form.component.html',
   styleUrls: ['./funcionario-form.component.css']
 })
-export class FuncionarioFormComponent {
+export class FuncionarioFormComponent implements OnInit {
   
   funcionario: Funcionario
 
   constructor(private route: ActivatedRoute, private router: Router, private funcionarioService: FuncionarioService) {
     this.funcionario = new Funcionario();
   }
+
+  ngOnInit() {
+    this.funcionario = this.funcionarioService.getFuncionario();
+  }
  
   onSubmit() {
-    this.funcionarioService.save(this.funcionario).subscribe(result => this.gotofuncionarioList());
+    if (this.funcionario.id == undefined) {
+      this.funcionarioService.save(this.funcionario).subscribe(result => this.gotofuncionarioList());
+    } else {
+      this.funcionarioService.update(this.funcionario).subscribe();
+      this.router.navigate(['/funcionarios']);
+    }
   }
  
   gotofuncionarioList() {

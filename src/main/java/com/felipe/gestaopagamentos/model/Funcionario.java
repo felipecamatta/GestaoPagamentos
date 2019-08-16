@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Funcionario {
@@ -27,7 +26,7 @@ public class Funcionario {
 
 	@NotNull
 	private String cargo;
-	
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "funcionario")
 	@JsonIgnore
 	@Valid
@@ -38,7 +37,7 @@ public class Funcionario {
 		this.nome = nome;
 		this.cargo = cargo;
 	}
-	
+
 	public Funcionario() {
 	}
 

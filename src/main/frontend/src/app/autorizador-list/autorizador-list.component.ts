@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AutorizadorService } from '../services/autorizador.service';
 import { Autorizador } from '../models/autorizador';
 
@@ -11,7 +12,7 @@ export class AutorizadorListComponent implements OnInit {
 
   autorizadores: Autorizador[]
 
-  constructor(private autorizadorService: AutorizadorService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private autorizadorService: AutorizadorService) { }
 
   ngOnInit() {
     this.autorizadorService.findAll().subscribe(data => {
@@ -21,8 +22,13 @@ export class AutorizadorListComponent implements OnInit {
 
   onDelete(id: number) {
     this.autorizadorService.delete(id).subscribe(data => {
-      alert ("Autorizador deletado!");
+      alert("Autorizador deletado!");
       this.ngOnInit();
     });
+  }
+
+  onUpdate(autorizador: Autorizador) {
+    this.autorizadorService.setAutorizador(autorizador);
+    this.router.navigate(['/addautorizador']);
   }
 }

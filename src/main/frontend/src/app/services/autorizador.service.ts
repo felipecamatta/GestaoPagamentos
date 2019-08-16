@@ -9,6 +9,7 @@ import { Autorizador } from '../models/autorizador';
 export class AutorizadorService {
 
   private autorizadoresUrl: string;
+  private autorizador = new Autorizador();
 
   constructor(private http: HttpClient) {
     this.autorizadoresUrl = 'http://localhost:8080/autorizadores';
@@ -24,5 +25,17 @@ export class AutorizadorService {
 
   public delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.autorizadoresUrl}/${id}`);
+  }
+  
+  public update(autorizador: Autorizador) {
+    return this.http.put<Autorizador>(this.autorizadoresUrl + '/' + autorizador.id, autorizador);
+  }
+
+  public getAutorizador() {
+    return this.autorizador;
+  }
+
+  public setAutorizador(autorizador: Autorizador) {
+    this.autorizador = autorizador
   }
 }

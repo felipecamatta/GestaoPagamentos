@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'addpagamento', component: PagamentoFormComponent },
   { path: 'autorizadores', component: AutorizadorListComponent },
   { path: 'addautorizador', component: AutorizadorFormComponent },
-  { path: 'autpagamento', component: PagamentoAuthorizeComponent },
+  { path: 'autorizarpagamentos', component: PagamentoAuthorizeComponent },
   { path: 'ocorrencia', component: PagamentoOcorrenciasComponent }
 ];
  

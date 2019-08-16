@@ -35,7 +35,7 @@ public class GestaoPagamentoApplication {
 			funcionarioService.save(new Funcionario(4L, "Lucas", "Escravo"));
 			Pagamento pagamento = pagamentoService.save(new Pagamento(1L, "Desc", 2000.00, LocalDate.now(), LocalDate.of(2019, 07, 20), "pendente" ,lista, f1));
 			ocorrenciaService.save(new Ocorrencia(1L, "Desc", "Joao", pagamento));
-			Pagamento pagamento1 = pagamentoService.save(new Pagamento(2L, "123abc", 987.00, LocalDate.now(), LocalDate.of(2019, 07, 20), "pago", lista, f2));
+			Pagamento pagamento1 = pagamentoService.save(new Pagamento(2L, "123abc", 987.00, LocalDate.now(), LocalDate.of(2019, 07, 20), "pendente", lista, f2));
 			ocorrenciaService.save(new Ocorrencia(2L, "123abc", "Lucas", pagamento1));
 			Autorizador a1 = autorizadorService.save(new Autorizador(1L, "Escravo", 500.00, 's'));
 		};

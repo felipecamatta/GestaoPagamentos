@@ -16,5 +16,7 @@ public interface PagamentoService {
 	Pagamento getPagamento(@Min(value = 1L, message = "Invalid pagamento ID.") long id);
 
 	Pagamento save(Pagamento pagamento);
+	
+	Iterable<Pagamento> getPagamentosNaoAutorizados();
 
 }

@@ -23,7 +23,6 @@ public class PagamentoServiceImpl implements PagamentoService {
 
 	@Override
 	public Pagamento getPagamento(long id) {
-		// erro em orElseThrow
 		return pagamentoRepository.findById(id).orElse(null);
 	}
 
@@ -32,4 +31,9 @@ public class PagamentoServiceImpl implements PagamentoService {
 		return pagamentoRepository.save(pagamento);
 	}
 
+	@Override
+	public Iterable<Pagamento> getPagamentosNaoAutorizados() {
+		return pagamentoRepository.findByStatus("pendente");
+	}
+	
 }

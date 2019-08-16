@@ -1,9 +1,10 @@
 <div class="card my-5">
-    <div class="card-body">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(f)" #pagautForm="ngForm">
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr>
-            <th scope="col"> </th>
+            <th scope="col"></th>
             <th scope="col">#</th>
             <th scope="col">Descrição</th>
             <th scope="col">Solicitante</th>
@@ -14,9 +15,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let pagamento of pagamentos">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            </div>
+            <td>
+              <div class="form-check" style="text-align: center">
+                <input class="form-check-input" type="checkbox" name="pagamentosChecked[]" value="{{ pagamento.id }}"
+                  ngModel>
+              </div>
+            </td>
             <td>{{ pagamento.id }}</td>
             <td>{{ pagamento.descricao }}</td>
             <td>{{ pagamento.funcionario.nome }}</td>
@@ -26,9 +30,9 @@
           </tr>
         </tbody>
       </table>
-    </div>
-  <ul>
-    <li class="list-inline-item" (click)="aut()"><a routerLink="/pagamentos" class="btn btn-info">Autorizar</a></li>
-    <li class="list-inline-item"><a routerLink="/pagamentos" class="btn btn-info">Voltar</a></li>
-  </ul>
+      <button type="submit" class="btn btn-primary">Autorizar</button>
+    </form>
+    &nbsp;
+    <button routerLink="/pagamentos" class="btn btn-info">Voltar</button>
+  </div>
 </div>

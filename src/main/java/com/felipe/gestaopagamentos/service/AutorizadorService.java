@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 
 import com.felipe.gestaopagamentos.model.Autorizador;
+import com.felipe.gestaopagamentos.model.Pagamento;
 
 @Validated
 public interface AutorizadorService {
@@ -19,5 +20,7 @@ public interface AutorizadorService {
 	ResponseEntity<Autorizador> update(long id, Autorizador autorizador);
 
 	ResponseEntity<?> deleteById(long id);
+	
+	boolean autorizar(Pagamento[] pagamentos);
 
 }
