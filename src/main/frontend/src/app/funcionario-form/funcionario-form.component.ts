@@ -9,7 +9,7 @@ import { Funcionario } from '../models/funcionario';
   styleUrls: ['./funcionario-form.component.css']
 })
 export class FuncionarioFormComponent implements OnInit {
-  
+
   funcionario: Funcionario
 
   constructor(private route: ActivatedRoute, private router: Router, private funcionarioService: FuncionarioService) {
@@ -19,18 +19,19 @@ export class FuncionarioFormComponent implements OnInit {
   ngOnInit() {
     this.funcionario = this.funcionarioService.getFuncionario();
   }
- 
+
   onSubmit() {
     if (this.funcionario.id == undefined) {
-      this.funcionarioService.save(this.funcionario).subscribe(result => this.gotofuncionarioList());
+      this.funcionarioService.save(this.funcionario).subscribe(result => {
+        this.router.navigate(['/funcionarios']);
+        alert("Funcionário adicionado com sucesso!");
+      });
     } else {
-      this.funcionarioService.update(this.funcionario).subscribe();
-      this.router.navigate(['/funcionarios']);
+      this.funcionarioService.update(this.funcionario).subscribe(result => {
+        this.router.navigate(['/funcionarios']);
+        alert("Funcionário editado com sucesso!");
+      });
     }
   }
- 
-  gotofuncionarioList() {
-    this.router.navigate(['/funcionarios']);
-    alert("Funcionario adicionado com sucesso!");
-  }
+
 }

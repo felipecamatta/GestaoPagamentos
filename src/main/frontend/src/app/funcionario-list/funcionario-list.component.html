@@ -15,13 +15,13 @@
           <td>{{ funcionario.nome }}</td>
           <td>{{ funcionario.cargo }}</td>
           <td style="width: 20%; text-align: center">
-            <button class="btn btn-danger btn-sm" (click)="onUpdate(funcionario)">Editar</button>
+            <button class="btn btn-primary btn-sm" (click)="onUpdate(funcionario)">Editar</button>
             &nbsp;
             <button class="btn btn-danger btn-sm" (click)="onDelete(funcionario.id)">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <li class="list-inline-item"><a routerLink="/addfuncionario" class="btn btn-info">Adicionar Funcionário</a></li>
+    <button (click)="onCreate()" class="btn btn-success">Adicionar Funcionário</button>
   </div>
 </div>

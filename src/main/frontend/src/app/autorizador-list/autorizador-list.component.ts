@@ -17,6 +17,13 @@ export class AutorizadorListComponent implements OnInit {
   ngOnInit() {
     this.autorizadorService.findAll().subscribe(data => {
       this.autorizadores = data
+      this.autorizadores.forEach(autorizador => {
+        if (autorizador.disponivel == 's') {
+          autorizador.disponivel = 'Sim';
+        } else {
+          autorizador.disponivel = 'Não';
+        }
+      });
     });
   }
 
@@ -28,6 +35,12 @@ export class AutorizadorListComponent implements OnInit {
   }
 
   onUpdate(autorizador: Autorizador) {
+    this.autorizadorService.setAutorizador(autorizador);
+    this.router.navigate(['/addautorizador']);
+  }
+
+  onCreate() {
+    let autorizador = new Autorizador();
     this.autorizadorService.setAutorizador(autorizador);
     this.router.navigate(['/addautorizador']);
   }

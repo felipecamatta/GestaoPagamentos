@@ -16,14 +16,14 @@
           <td>{{ pagamento.id }}</td>
           <td>{{ pagamento.descricao }}</td>
           <td>{{ pagamento.funcionario.nome }}</td>
-          <td>{{ pagamento.valor }}</td>
+          <td>R${{ pagamento.valor }}</td>
           <td>{{ pagamento.dataVencimento }}</td>
           <td>{{ pagamento.status }}</td>
         </tr>
       </tbody>
     </table>
-      <li class="list-inline-item"><a routerLink="/addpagamento" class="btn btn-info">Registrar Pagamento</a></li>
-      <li class="list-inline-item"><a routerLink="/autorizarpagamentos" class="btn btn-info">Autorizar Pagamentos</a>
-      </li>
+    <button routerLink="/addpagamento" class="btn btn-success">Adicionar Pagamento</button>
+    &nbsp;
+    <button routerLink="/autorizarpagamentos" class="btn btn-primary">Autorizar Pagamentos</button>
   </div>
 </div>

@@ -31,4 +31,10 @@ export class FuncionarioListComponent implements OnInit {
     this.funcionarioService.setFuncionario(funcionario);
     this.router.navigate(['/addfuncionario']);
   }
+
+  onCreate() {
+    let funcionario = new Funcionario();
+    this.funcionarioService.setFuncionario(funcionario);
+    this.router.navigate(['/addfuncionario']);
+  }
 }

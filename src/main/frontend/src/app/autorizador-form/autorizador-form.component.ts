@@ -22,10 +22,15 @@ export class AutorizadorFormComponent implements OnInit {
 
   onSubmit() {
     if (this.autorizador.id == undefined) {
-      this.autorizadorService.save(this.autorizador).subscribe(result => this.gotoautorizadorList());
+      this.autorizadorService.save(this.autorizador).subscribe(result => {
+        this.router.navigate(['/autorizadores']);
+        alert("Autorizador adicionado com sucesso!");
+      });
     } else {
-      this.autorizadorService.update(this.autorizador).subscribe();
+      this.autorizadorService.update(this.autorizador).subscribe( result => {
       this.router.navigate(['/autorizadores']);
+      alert("Autorizador editado com sucesso!");
+      });
     }
   }
 

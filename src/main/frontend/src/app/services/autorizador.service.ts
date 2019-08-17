@@ -28,7 +28,7 @@ export class AutorizadorService {
   }
   
   public update(autorizador: Autorizador) {
-    return this.http.put<Autorizador>(this.autorizadoresUrl + '/' + autorizador.id, autorizador);
+    return this.http.put<Autorizador>(`${this.autorizadoresUrl}/${autorizador.id}`, autorizador);
   }
 
   public getAutorizador() {

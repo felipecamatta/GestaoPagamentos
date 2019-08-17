@@ -28,7 +28,7 @@ export class FuncionarioService {
   }
 
   public update(funcionario: Funcionario) {
-    return this.http.put<Funcionario>(this.funcionariosUrl + '/' + funcionario.id, funcionario);
+    return this.http.put<Funcionario>(`${this.funcionariosUrl}/${funcionario.id}`, funcionario);
   }
 
   public getFuncionario() {

@@ -14,16 +14,16 @@
         <tr *ngFor="let autorizador of autorizadores">
           <td>{{ autorizador.id }}</td>
           <td>{{ autorizador.cargo }}</td>
-          <td>{{ autorizador.limite }}</td>
+          <td>R${{ autorizador.limite }}</td>
           <td>{{ autorizador.disponivel }}</td>
           <td style="width: 20%; text-align: center">
-            <button class="btn btn-danger btn-sm" (click)="onUpdate(autorizador)">Editar</button>
+            <button class="btn btn-primary btn-sm" (click)="onUpdate(autorizador)">Editar</button>
             &nbsp;
             <button class="btn btn-danger btn-sm" (click)="onDelete(autorizador.id)">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <li class="list-inline-item"><a routerLink="/addautorizador" class="btn btn-info">Novo</a></li>
+    <button (click)="onCreate()" class="btn btn-success">Adicionar Autorizador</button>
   </div>
 </div>

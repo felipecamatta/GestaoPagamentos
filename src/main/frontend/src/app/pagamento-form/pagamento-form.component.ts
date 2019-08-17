@@ -11,13 +11,13 @@ import { FuncionarioService } from '../services/funcionario.service';
   styleUrls: ['./pagamento-form.component.css']
 })
 export class PagamentoFormComponent implements OnInit {
- 
+
   pagamento: Pagamento
   funcionarios: Funcionario[]
   funcid: number
 
   constructor(private route: ActivatedRoute, private router: Router,
-  private pagamentoService: PagamentoService, private funcionarioService: FuncionarioService) {
+    private pagamentoService: PagamentoService, private funcionarioService: FuncionarioService) {
     this.pagamento = new Pagamento();
   }
 
@@ -26,16 +26,16 @@ export class PagamentoFormComponent implements OnInit {
       this.funcionarios = data
     });
   }
- 
+
   onSubmit() {
     var i = 0;
-    for(i; this.funcionarios[i].id != this.funcid; i++) ;
-    
+    for (i; this.funcionarios[i].id != this.funcid; i++);
+
     this.pagamento.funcionario = this.funcionarios[i];
-    this.pagamento.status = "pendente";
+    this.pagamento.status = "Pendente";
     this.pagamentoService.save(this.pagamento).subscribe(result => this.gotoPagamentoList());
   }
- 
+
   gotoPagamentoList() {
     this.router.navigate(['/pagamentos']);
     alert("Pagamento registrado com sucesso!");
