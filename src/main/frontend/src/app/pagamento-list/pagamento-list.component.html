@@ -9,6 +9,7 @@
           <th scope="col">Valor</th>
           <th scope="col">Vencimento</th>
           <th scope="col">Status</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,9 @@
           <td>R${{ pagamento.valor }}</td>
           <td>{{ pagamento.dataVencimento }}</td>
           <td>{{ pagamento.status }}</td>
+          <td style="width: 20%; text-align: center">
+            <button class="btn btn-primary btn-sm" (click)="semcriatividade(pagamento)">Ocorrências</button>
+          </td>
         </tr>
       </tbody>
     </table>
