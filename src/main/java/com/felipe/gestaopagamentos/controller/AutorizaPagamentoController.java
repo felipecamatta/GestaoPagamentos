@@ -1,5 +1,7 @@
 package com.felipe.gestaopagamentos.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,13 +26,20 @@ public class AutorizaPagamentoController {
 	}
 
 	@GetMapping
-	public Iterable<Pagamento> getPagamentosNaoAutorizados() {
+	public List<Pagamento> getPagamentosNaoAutorizados() {
 		return pagamentoService.getPagamentosNaoAutorizados();
 	}
 
 	@PostMapping
-	public boolean autorizarPagamentos(@RequestBody Pagamento[] pagamentos) {
-		System.out.print(pagamentos[0]);
+	public boolean autorizarPagamentos(@RequestBody Long[] idsPagamentos) {
+		//System.out.println("Entrou1");
+		Pagamento[] pagamentos = new Pagamento[idsPagamentos.length];
+		for (int i = 0; i < idsPagamentos.length; i++) {
+			System.out.println(i);
+			pagamentos[i] = pagamentoService.getPagamento(idsPagamentos[i]);
+		}
+		System.out.println("saiu");
+		//return true;
 		return autorizadorService.autorizar(pagamentos);
 	}
 }

@@ -49,9 +49,11 @@ public class AutorizadorServiceImpl implements AutorizadorService {
 
 	@Override
 	public boolean autorizar(Pagamento[] pagamentos) {
-		for (Pagamento pagamento : pagamentos) {
+		System.out.println("entrou2");
+		/*for (Pagamento pagamento : pagamentos) {
+			System.out.println(pagamento.getStatus());
 			pagamento.setStatus("Pago");
-		}
+		}*/
 		return true;
 	}
 

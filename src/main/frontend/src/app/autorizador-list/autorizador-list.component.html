@@ -3,16 +3,16 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Cargo</th>
-          <th scope="col">Limite</th>
-          <th scope="col">Disponivel</th>
+          <th>#</th>
+          <th>Cargo</th>
+          <th>Limite</th>
+          <th>Disponivel</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let autorizador of autorizadores">
-          <td>{{ autorizador.id }}</td>
+          <th scope="row">{{ autorizador.id }}</th>
           <td>{{ autorizador.cargo }}</td>
           <td>R${{ autorizador.limite }}</td>
           <td>{{ autorizador.disponivel }}</td>
@@ -24,6 +24,6 @@
         </tr>
       </tbody>
     </table>
-    <button (click)="onCreate()" class="btn btn-success">Adicionar Autorizador</button>
+    <button class="btn btn-success" (click)="onCreate()">Adicionar Autorizador</button>
   </div>
 </div>

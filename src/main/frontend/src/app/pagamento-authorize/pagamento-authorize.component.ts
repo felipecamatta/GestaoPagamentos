@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pagamento } from '../models/pagamento';
 import { AutorizaPagamentoService } from '../services/autoriza-pagamento.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pagamento-authorize',
@@ -12,8 +11,8 @@ import { NgForm } from '@angular/forms';
 export class PagamentoAuthorizeComponent implements OnInit {
 
   pagamentos: Pagamento[];
-  pagamentosChecked: Int16Array[];
-  
+  pagamentoFormArray: Number[] = [];
+
   constructor(private route: ActivatedRoute, private router: Router, private autorizaPagamentoService: AutorizaPagamentoService) { }
 
   ngOnInit() {
@@ -22,12 +21,20 @@ export class PagamentoAuthorizeComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    console.log(this.pagamentosChecked)
-    //this.autorizaPagamentoService.autorizar(this.pagamentosChecked).subscribe(result => this.gotopagamentosList());
+  onChange(id: Number, isChecked: boolean) {
+    if (isChecked) {
+      this.pagamentoFormArray.push(id);
+    } else {
+      let index = this.pagamentoFormArray.indexOf(id);
+      this.pagamentoFormArray.splice(index, 1);
+    }
   }
-  
-  gotopagamentosList() {
-    this.router.navigate(['/pagamentos']);
+
+  autorizar() {
+    this.autorizaPagamentoService.autorizar(this.pagamentoFormArray).subscribe(result => {
+      this.router.navigate(['/pagamentos'])
+      alert('');
+    });
   }
+
 }

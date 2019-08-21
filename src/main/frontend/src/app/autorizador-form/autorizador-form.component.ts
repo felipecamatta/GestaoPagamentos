@@ -33,8 +33,5 @@ export class AutorizadorFormComponent implements OnInit {
       });
     }
   }
-
-  gotoautorizadorList() {
-    this.router.navigate(['/autorizadores']);
-  }
+  
 }

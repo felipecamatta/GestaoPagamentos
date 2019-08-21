@@ -36,10 +36,6 @@ public class Autorizador {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getCargo() {
 		return cargo;
 	}

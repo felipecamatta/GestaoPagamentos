@@ -18,7 +18,7 @@ export class AutorizaPagamentoService {
     return this.http.get<Pagamento[]>(this.autorizaPagamentoUrl);
   }
 
-  public autorizar(pagamentos: Pagamento[]) {
+  public autorizar(pagamentos: Number[]) {
     return this.http.post<Boolean>(this.autorizaPagamentoUrl, pagamentos);
   }
 }

@@ -1,33 +1,59 @@
 <div class="card my-5">
   <div class="card-body">
-    <table id="tabela_Pagamentos" class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Solicitante</th>
-          <th scope="col">Valor</th>
-          <th scope="col">Vencimento</th>
-          <th scope="col">Status</th>
+          <th>#</th>
+          <th>Descrição</th>
+          <th>Solicitante</th>
+          <th>Valor</th>
+          <th>Vencimento</th>
+          <th>Status</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let pagamento of pagamentos">
-          <td>{{ pagamento.id }}</td>
+          <th scope="row">{{ pagamento.id }}</th>
           <td>{{ pagamento.descricao }}</td>
           <td>{{ pagamento.funcionario.nome }}</td>
           <td>R${{ pagamento.valor }}</td>
           <td>{{ pagamento.dataVencimento }}</td>
           <td>{{ pagamento.status }}</td>
-          <td style="width: 20%; text-align: center">
-            <button class="btn btn-primary btn-sm" (click)="semcriatividade(pagamento)">Ocorrências</button>
+          <td style="width: 15%; text-align: center">
+            <button class="btn btn-primary btn-sm" (click)="openModal(modal, pagamento.ocorrencias)">Ocorrências</button>
           </td>
         </tr>
       </tbody>
     </table>
     <button routerLink="/addpagamento" class="btn btn-success">Adicionar Pagamento</button>
     &nbsp;
-    <button routerLink="/autorizarpagamentos" class="btn btn-primary">Autorizar Pagamentos</button>
+    <button routerLink="/autorizarpagamentos" class="btn btn-warning">Autorizar Pagamentos</button>
   </div>
 </div>
+
+
+<ng-template #modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Ocorrências</h4>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-striped">
+      <thead>
+        <th>#</th>
+        <th>Descrição</th>
+        <th>Usuário</th>
+      </thead>
+      <tbody>        
+        <tr *ngFor="let ocorrencia of ocorrencias">
+          <th scope="row">{{ ocorrencia.id }}</th>
+          <td>{{ ocorrencia.descricao }}</td>
+          <td>{{ ocorrencia.usuario }}</td>
+        </tr>    
+      </tbody>
+    </table>
+  </div>
+</ng-template>

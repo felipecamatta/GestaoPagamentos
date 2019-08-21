@@ -1,5 +1,7 @@
 package com.felipe.gestaopagamentos.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,12 +25,12 @@ public class PagamentoController {
 	}
 
 	@GetMapping
-	public Iterable<Pagamento> getPagamentos() {
+	public List<Pagamento> getPagamentos() {
 		return pagamentoService.getAllPagamentos();
 	}
 
 	@GetMapping(path = { "/{id}" })
-	public Pagamento getFuncionarioById(@PathVariable long id) {
+	public Pagamento getFuncionarioById(@PathVariable Long id) {
 		return pagamentoService.getPagamento(id);
 	}
 

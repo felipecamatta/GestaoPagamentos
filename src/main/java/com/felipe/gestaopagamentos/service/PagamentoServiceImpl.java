@@ -1,5 +1,7 @@
 package com.felipe.gestaopagamentos.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,12 +19,12 @@ public class PagamentoServiceImpl implements PagamentoService {
 	}
 
 	@Override
-	public Iterable<Pagamento> getAllPagamentos() {
+	public List<Pagamento> getAllPagamentos() {
 		return pagamentoRepository.findAll();
 	}
 
 	@Override
-	public Pagamento getPagamento(long id) {
+	public Pagamento getPagamento(Long id) {
 		return pagamentoRepository.findById(id).orElse(null);
 	}
 
@@ -32,8 +34,8 @@ public class PagamentoServiceImpl implements PagamentoService {
 	}
 
 	@Override
-	public Iterable<Pagamento> getPagamentosNaoAutorizados() {
-		return pagamentoRepository.findByStatus("pendente");
+	public List<Pagamento> getPagamentosNaoAutorizados() {
+		return pagamentoRepository.findByStatus("Pendente");
 	}
-	
+
 }

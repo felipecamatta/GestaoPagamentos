@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Pagamento } from '../models/pagamento';
 import { PagamentoService } from '../services/pagamento.service';
-import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from '@angular/platform-browser-dynamic';
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Ocorrencia } from '../models/ocorrencia';
 
 @Component({
   selector: 'app-pagamento-list',
@@ -10,9 +12,10 @@ import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a 
 })
 export class PagamentoListComponent implements OnInit {
 
-  pagamentos: Pagamento[]
+  pagamentos: Pagamento[];
+  ocorrencias: Ocorrencia[];
 
-  constructor(private pagamentoService: PagamentoService) { }
+  constructor(private pagamentoService: PagamentoService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.pagamentoService.findAll().subscribe(data => {
@@ -20,10 +23,9 @@ export class PagamentoListComponent implements OnInit {
     });
   }
 
-  semcriatividade(pagamento: Pagamento) {
-    pagamento.ocorrencias.forEach(function (value) {
-      alert(`Descrição: ${value.descricao}\nUsuário: ${value.usuario}`);
-    });
+  openModal(modal, ocorrencias2: Ocorrencia[]) {
+    this.ocorrencias = ocorrencias2;
+    this.modalService.open(modal);
   }
 
 }

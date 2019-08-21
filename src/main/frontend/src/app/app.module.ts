@@ -17,6 +17,8 @@ import { PagamentoAuthorizeComponent } from './pagamento-authorize/pagamento-aut
 import { PagamentoOcorrenciasComponent } from './pagamento-ocorrencias/pagamento-ocorrencias.component';
 import { PagamentoFormComponent } from './pagamento-form/pagamento-form.component';
 
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +35,13 @@ import { PagamentoFormComponent } from './pagamento-form/pagamento-form.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     FuncionarioService,
-    AutorizadorService
+    AutorizadorService,
+    NgbActiveModal
   ],
   bootstrap: [AppComponent]
 })
