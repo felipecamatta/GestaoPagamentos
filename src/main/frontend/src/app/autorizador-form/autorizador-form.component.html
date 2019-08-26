@@ -9,10 +9,15 @@
       <div [hidden]="!cargo.pristine" class="alert alert-danger">Cargo é um campo obrigatório!</div>
       <div class="form-group">
         <label for="limite">Limite</label>
-        <input type="number" [(ngModel)]="autorizador.limite" class="form-control" id="limite" name="limite"
-          placeholder="Digite o limite disponivel" required #limite="ngModel">
-        <div [hidden]="!limite.pristine" class="alert alert-danger">Limite é um campo obrigatório!</div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">R$</div>
+          </div>
+          <input type="number" [(ngModel)]="autorizador.limite" class="form-control" id="limite" name="limite"
+            placeholder="Digite o limite disponivel" required #limite="ngModel">
+        </div>
       </div>
+      <div [hidden]="!limite.pristine" class="alert alert-danger">Limite é um campo obrigatório!</div>
       <div class="form-group">
         <label for="disponivel">Disponivel?</label>
         <div class="input-group">

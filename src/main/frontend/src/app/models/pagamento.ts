@@ -5,9 +5,9 @@ export class Pagamento {
     id: number
     descricao: String
     valor: DoubleRange
-    dataVencimento: String
-    dataPagamento: String
     status: String
+    dataVencimento: String
+    dataPagamento: String    
     ocorrencias: Ocorrencia[]
     funcionario: Funcionario
 }

@@ -33,7 +33,7 @@ export class PagamentoAuthorizeComponent implements OnInit {
   autorizar() {
     this.autorizaPagamentoService.autorizar(this.pagamentoFormArray).subscribe(result => {
       this.router.navigate(['/pagamentos'])
-      alert('');
+      alert('Autorizado(s)!');
     });
   }
 

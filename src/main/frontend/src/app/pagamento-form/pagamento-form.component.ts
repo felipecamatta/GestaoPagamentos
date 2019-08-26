@@ -33,7 +33,9 @@ export class PagamentoFormComponent implements OnInit {
 
     this.pagamento.funcionario = this.funcionarios[i];
     this.pagamento.status = "Pendente";
-    this.pagamentoService.save(this.pagamento).subscribe(result => this.gotoPagamentoList());
+    this.pagamentoService.save(this.pagamento).subscribe(result =>
+      this.gotoPagamentoList()
+    );
   }
 
   gotoPagamentoList() {

@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-hover">
       <thead class="thead-dark">
         <tr>
           <th>#</th>
@@ -17,7 +17,7 @@
           <th scope="row">{{ pagamento.id }}</th>
           <td>{{ pagamento.descricao }}</td>
           <td>{{ pagamento.funcionario.nome }}</td>
-          <td>R${{ pagamento.valor }}</td>
+          <td>{{ pagamento.valor | currency:'BRL' }}</td>
           <td>{{ pagamento.dataVencimento }}</td>
           <td>{{ pagamento.status }}</td>
           <td style="width: 15%; text-align: center">

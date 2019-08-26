@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-hover">
       <thead class="thead-dark">
         <tr>
           <th>#</th>
@@ -14,7 +14,7 @@
         <tr *ngFor="let autorizador of autorizadores">
           <th scope="row">{{ autorizador.id }}</th>
           <td>{{ autorizador.cargo }}</td>
-          <td>R${{ autorizador.limite }}</td>
+          <td>{{ autorizador.limite | currency:'BRL' }}</td>
           <td>{{ autorizador.disponivel }}</td>
           <td style="width: 20%; text-align: center">
             <button class="btn btn-primary btn-sm" (click)="onUpdate(autorizador)">Editar</button>
