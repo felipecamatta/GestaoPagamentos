@@ -21,8 +21,9 @@ public class AutorizaPagamentoController {
 	private PagamentoService pagamentoService;
 	private AutorizadorService autorizadorService;
 
-	public AutorizaPagamentoController(PagamentoService pagamentoService) {
+	public AutorizaPagamentoController(PagamentoService pagamentoService, AutorizadorService autorizadorService) {
 		this.pagamentoService = pagamentoService;
+		this.autorizadorService = autorizadorService;
 	}
 
 	@GetMapping
@@ -32,14 +33,10 @@ public class AutorizaPagamentoController {
 
 	@PostMapping
 	public boolean autorizarPagamentos(@RequestBody Long[] idsPagamentos) {
-		//System.out.println("Entrou1");
 		Pagamento[] pagamentos = new Pagamento[idsPagamentos.length];
 		for (int i = 0; i < idsPagamentos.length; i++) {
-			System.out.println(i);
 			pagamentos[i] = pagamentoService.getPagamento(idsPagamentos[i]);
 		}
-		System.out.println("saiu");
-		//return true;
 		return autorizadorService.autorizar(pagamentos);
 	}
 }

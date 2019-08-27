@@ -1,5 +1,7 @@
 package com.felipe.gestaopagamentos.service;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,11 +20,11 @@ public class AutorizadorServiceImpl implements AutorizadorService {
 		this.autorizadorRepository = autorizadorRepository;
 	}
 
-	public Iterable<Autorizador> getAllAutorizadores() {
+	public List<Autorizador> getAllAutorizadores() {
 		return autorizadorRepository.findAll();
 	}
 
-	public Autorizador getAutorizador(long id) {
+	public Autorizador getAutorizador(Long id) {
 		return autorizadorRepository.findById(id).orElse(null);
 	}
 
@@ -30,7 +32,7 @@ public class AutorizadorServiceImpl implements AutorizadorService {
 		return autorizadorRepository.save(autorizador);
 	}
 
-	public ResponseEntity<Autorizador> update(long id, Autorizador autorizador) {
+	public ResponseEntity<Autorizador> update(Long id, Autorizador autorizador) {
 		return autorizadorRepository.findById(id).map(record -> {
 			record.setCargo(autorizador.getCargo());
 			record.setLimite(autorizador.getLimite());
@@ -40,21 +42,23 @@ public class AutorizadorServiceImpl implements AutorizadorService {
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	public ResponseEntity<?> deleteById(long id) {
+	public ResponseEntity<?> deleteById(Long id) {
 		return autorizadorRepository.findById(id).map(record -> {
 			autorizadorRepository.deleteById(id);
 			return ResponseEntity.ok().build();
 		}).orElse(ResponseEntity.notFound().build());
 	}
 
-	@Override
 	public boolean autorizar(Pagamento[] pagamentos) {
-		System.out.println("entrou2");
-		/*for (Pagamento pagamento : pagamentos) {
-			System.out.println(pagamento.getStatus());
-			pagamento.setStatus("Pago");
-		}*/
-		return true;
+		try {
+			for (Pagamento pagamento : pagamentos) {
+				pagamento.setStatus("Pago");
+			}
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
 	}
 
 }

@@ -44,7 +44,6 @@ public class Pagamento {
 
 	@JsonManagedReference
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pagamento")
-	@JsonIgnore
 	@Valid
 	private List<Ocorrencia> ocorrencias = new ArrayList<>();
 

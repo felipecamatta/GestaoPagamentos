@@ -22,7 +22,7 @@
             <td>{{ pagamento.id }}</td>
             <td>{{ pagamento.descricao }}</td>
             <td>{{ pagamento.funcionario.nome }}</td>
-            <td>R${{ pagamento.valor }}</td>
+            <td>{{ pagamento.valor | currency:'BRL' }}</td>
             <td>{{ pagamento.dataVencimento }}</td>
             <td>{{ pagamento.status }}</td>
           </tr>
